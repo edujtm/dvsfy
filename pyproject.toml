@@ -7,6 +7,8 @@ authors = ["Eduardo Macedo <edujtm.soft@gmail.com>"]
 [tool.poetry.dependencies]
 python = "^3.6"
 django = "2.2"
+psycopg2 = "^2.8.6"
+python-decouple = "^3.3"
 
 [tool.poetry.dev-dependencies]
 
