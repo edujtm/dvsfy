@@ -39,7 +39,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # Third party
+    'social_django',
+    # internal
+    'diversify',
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -58,6 +63,7 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             os.path.join(BASE_DIR, 'assets'),
+            os.path.join(BASE_DIR, 'templates'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -66,6 +72,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
@@ -129,3 +137,21 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'assets/static')
 ]
+
+# ------- Django Auth Conf -------
+
+LOGIN_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+
+# ------- Social Auth Conf -------
+
+SOCIAL_AUTH_POSTGRES_JSONFIELD = True
+
+AUTHENTICATION_BACKENDS = [
+    'social_core.backends.spotify.SpotifyOAuth2'
+]
+
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/app/'
+SOCIAL_AUTH_SPOTIFY_KEY = config('SPOTIFY_CLIENT_ID')
+SOCIAL_AUTH_SPOTIFY_SECRET = config('SPOTIFY_CLIENT_SECRET')
+

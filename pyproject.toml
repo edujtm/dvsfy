@@ -9,6 +9,7 @@ python = "^3.6"
 django = "2.2"
 psycopg2 = "^2.8.6"
 python-decouple = "^3.3"
+social-auth-app-django = "^4.0.0"
 
 [tool.poetry.dev-dependencies]
 

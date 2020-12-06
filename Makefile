@@ -12,3 +12,4 @@ build:
 	npm run build --prefix frontend
 	rm -rf ./assets
 	mv ./frontend/build ./assets
+	mv assets/index.html assets/app.html
