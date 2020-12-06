@@ -1,9 +1,36 @@
-<html>
-	<head>
-		<title>Spotify auth</title>
-	</head>
-	<body>
-		<a href={% url "social:begin" "spotify" %}>Login with Spotify</a>
-	</body>
-</html>
+<!doctype html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="{% static '/css/landing_page.css' %}" type="text/css">
+    <title>Diversify</title>
 
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="left-img-wrapper">
+        <img src="{% static '/img/left-people.png' %}"/>
+      </div>
+
+      <div class="main-column">
+        <h1 class="logo-text">Diversify</h1>
+        <p class="description">A playlist generator for Spotify that tries to satisfy the preferences of multiple users based on their listening data.<p>
+        <div class="login-btn-wrapper">
+          <a href="{% url "social:begin" "spotify" %}">
+            <button class="login-btn">
+              Login with spotify
+            </button>
+          </a>
+        </div>
+      </div>
+
+      <div class="right-img-wrapper">
+        <img src="{% static '/img/right-people.png' %}"/>
+      </div>
+    <div>
+  </body>
+</html>
